@@ -4,25 +4,23 @@ import os
 
 # 動体検知に使用するアルゴリズムを選択
 model = cv2.bgsegm.createBackgroundSubtractorMOG()
-
+# テキストファイル
 k = open("ekuseru.txt","w")
-
+# 画像各種設定
 # 連番画像のパス
-img_path = r"images"
-
+#img_path = r"images"
+image_folder = "images"
+# ファイル名
 template = "{:06d}.bmp"
+# フレーム数指定
 start_frame = 1
 end_frame = 1030
-image_folder = "images"
-
-
-# 動体検知した数
+# 変数
 detection_count = 0
 now = 0
-
 framecount = 0
 
-# 画像ごとに処理
+# 処理
 for frame_number in range(start_frame, end_frame + 1):
     # 画像のファイル名を取得します
     filename = template.format(frame_number)
